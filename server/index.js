@@ -21,6 +21,7 @@ const app = express();
 app.use('/api/v1/products', productRoutes);
 
 if (process.env.NODE_ENV === 'production') {
+  console.log('production')
   const appPath = path.join(__dirname, '..', 'dist', 'my-first-app');
   app.use(express.static(appPath));
   app.get('*', (req, res) => {
@@ -29,6 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || '3001';
+console.log(PORT)
 app
   .listen(PORT, () => {
     console.log('i am running')
